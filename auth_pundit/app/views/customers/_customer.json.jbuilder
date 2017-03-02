@@ -1,0 +1,2 @@
+json.extract! customer, :id, :id, :personal_cd, :parent_customer_id, :member_store_cd, :charge_cd, :customer_nm, :customer_kana, :customer_type, :is_manage_company, :president_nm, :post, :birth, :sex, :zip_cd, :addr1, :addr2, :addr3, :tel, :fax, :mobile_number, :email, :si_owner_f, :si_client_f, :bb_owner_f, :bb_agency_f, :note, :create_user_id, :update_user_id, :created_at, :updated_at, :created_at, :updated_at
+json.url customer_url(customer, format: :json)

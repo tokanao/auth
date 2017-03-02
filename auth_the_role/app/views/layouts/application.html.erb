@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AuthBanken</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- 追記部分 開始 -->
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+<!-- 追記部分 終了-->
+
+<%= link_to 'TheRole Manage Panel',  admin_roles_path %>
+<br/>
+<%= link_to 'users', '/users' %>
+<br/>
+<%= link_to 'customers', customers_path %>
+<br/>
+<%= link_to 'logout', users_destroy_path, :method => :delete %>
+<br/>
+<p align="center"> <%= controller.env['warden'].user(:user).try(:name) %> <p>
+
+<%# <%= yield :role_sidebar %>
+<%# <%= yield :role_main %>
+
+<%= yield %>
+
+</body>
+</html>

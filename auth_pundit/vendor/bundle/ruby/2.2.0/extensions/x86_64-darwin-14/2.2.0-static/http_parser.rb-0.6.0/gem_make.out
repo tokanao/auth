@@ -1,0 +1,12 @@
+/Users/toka/.rbenv/versions/2.2.5/bin/ruby -r ./siteconf20170223-5334-y1d3p5.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20170223-5334-1hqess6
