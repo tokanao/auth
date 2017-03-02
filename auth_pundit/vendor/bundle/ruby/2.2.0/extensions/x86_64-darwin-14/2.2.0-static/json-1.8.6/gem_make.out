@@ -1,0 +1,9 @@
+/Users/toka/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20170222-42399-1s10mly.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install

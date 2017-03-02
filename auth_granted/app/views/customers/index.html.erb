@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Personal cd</th>
+      <th>Parent customer</th>
+      <th>Member store cd</th>
+      <th>Charge cd</th>
+      <th>Customer nm</th>
+      <th>Customer kana</th>
+      <th>Customer type</th>
+      <th>Is manage company</th>
+      <th>President nm</th>
+      <th>Post</th>
+      <th>Birth</th>
+      <th>Sex</th>
+      <th>Zip cd</th>
+      <th>Addr1</th>
+      <th>Addr2</th>
+      <th>Addr3</th>
+      <th>Tel</th>
+      <th>Fax</th>
+      <th>Mobile number</th>
+      <th>Email</th>
+      <th>Si owner f</th>
+      <th>Si client f</th>
+      <th>Bb owner f</th>
+      <th>Bb agency f</th>
+      <th>Note</th>
+      <th>Create user</th>
+      <th>Update user</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.personal_cd %></td>
+        <td><%= customer.parent_customer_id %></td>
+        <td><%= customer.member_store_cd %></td>
+        <td><%= customer.charge_cd %></td>
+        <td><%= customer.customer_nm %></td>
+        <td><%= customer.customer_kana %></td>
+        <td><%= customer.customer_type %></td>
+        <td><%= customer.is_manage_company %></td>
+        <td><%= customer.president_nm %></td>
+        <td><%= customer.post %></td>
+        <td><%= customer.birth %></td>
+        <td><%= customer.sex %></td>
+        <td><%= customer.zip_cd %></td>
+        <td><%= customer.addr1 %></td>
+        <td><%= customer.addr2 %></td>
+        <td><%= customer.addr3 %></td>
+        <td><%= customer.tel %></td>
+        <td><%= customer.fax %></td>
+        <td><%= customer.mobile_number %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.si_owner_f %></td>
+        <td><%= customer.si_client_f %></td>
+        <td><%= customer.bb_owner_f %></td>
+        <td><%= customer.bb_agency_f %></td>
+        <td><%= customer.note %></td>
+        <td><%= customer.create_user_id %></td>
+        <td><%= customer.update_user_id %></td>
+        <td><%= customer.created_at %></td>
+        <td><%= customer.updated_at %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path %>

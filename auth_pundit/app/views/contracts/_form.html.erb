@@ -1,0 +1,673 @@
+<%= form_for(@contract) do |f| %>
+  <% if @contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
+
+      <ul>
+      <% @contract.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br>
+    <%= f.number_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :kintone_id %><br>
+    <%= f.number_field :kintone_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hikari_contract_no %><br>
+    <%= f.text_field :hikari_contract_no %>
+  </div>
+  <div class="field">
+    <%= f.label :charge_cd %><br>
+    <%= f.number_field :charge_cd %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_status %><br>
+    <%= f.text_field :contract_status %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_date %><br>
+    <%= f.date_select :contract_date %>
+  </div>
+  <div class="field">
+    <%= f.label :hikari_contract_no_reading %><br>
+    <%= f.text_field :hikari_contract_no_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :mypage_password %><br>
+    <%= f.text_field :mypage_password %>
+  </div>
+  <div class="field">
+    <%= f.label :mypage_password_reading %><br>
+    <%= f.text_field :mypage_password_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_identification_doc %><br>
+    <%= f.text_field :personal_identification_doc %>
+  </div>
+  <div class="field">
+    <%= f.label :tnp_file_1_nm %><br>
+    <%= f.text_field :tnp_file_1_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :tnp_file_2_nm %><br>
+    <%= f.text_field :tnp_file_2_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :tnp_file_3_nm %><br>
+    <%= f.text_field :tnp_file_3_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_1 %><br>
+    <%= f.text_field :reject_reason_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_other_1 %><br>
+    <%= f.text_field :reject_reason_other_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_2 %><br>
+    <%= f.text_field :reject_reason_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_other_2 %><br>
+    <%= f.text_field :reject_reason_other_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_3 %><br>
+    <%= f.text_field :reject_reason_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :reject_reason_other_3 %><br>
+    <%= f.text_field :reject_reason_other_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_id %><br>
+    <%= f.number_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :manage_company_id %><br>
+    <%= f.number_field :manage_company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_id %><br>
+    <%= f.number_field :dest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel %><br>
+    <%= f.text_field :dest_tel %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_place_same_f %><br>
+    <%= f.text_field :dest_place_same_f %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee %><br>
+    <%= f.text_field :dest_tel_nominee %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee_relationship %><br>
+    <%= f.text_field :dest_tel_nominee_relationship %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee_sei_kanji %><br>
+    <%= f.text_field :dest_tel_nominee_sei_kanji %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee_mei_kanji %><br>
+    <%= f.text_field :dest_tel_nominee_mei_kanji %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee_sei_kana %><br>
+    <%= f.text_field :dest_tel_nominee_sei_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_tel_nominee_mei_kana %><br>
+    <%= f.text_field :dest_tel_nominee_mei_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :application_date %><br>
+    <%= f.date_select :application_date %>
+  </div>
+  <div class="field">
+    <%= f.label :notice_delivered_f %><br>
+    <%= f.text_field :notice_delivered_f %>
+  </div>
+  <div class="field">
+    <%= f.label :new_diversion %><br>
+    <%= f.text_field :new_diversion %>
+  </div>
+  <div class="field">
+    <%= f.label :diversion_appr_no %><br>
+    <%= f.text_field :diversion_appr_no %>
+  </div>
+  <div class="field">
+    <%= f.label :diversion_appr_no_get_date %><br>
+    <%= f.date_select :diversion_appr_no_get_date %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty_for_diversion %><br>
+    <%= f.text_field :penalty_for_diversion %>
+  </div>
+  <div class="field">
+    <%= f.label :ntt_recept_no %><br>
+    <%= f.text_field :ntt_recept_no %>
+  </div>
+  <div class="field">
+    <%= f.label :arena_so_no %><br>
+    <%= f.text_field :arena_so_no %>
+  </div>
+  <div class="field">
+    <%= f.label :caf_no %><br>
+    <%= f.text_field :caf_no %>
+  </div>
+  <div class="field">
+    <%= f.label :caf_no_reading %><br>
+    <%= f.text_field :caf_no_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :access_key %><br>
+    <%= f.text_field :access_key %>
+  </div>
+  <div class="field">
+    <%= f.label :access_key_reading %><br>
+    <%= f.text_field :access_key_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :item_plan_id %><br>
+    <%= f.number_field :item_plan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :service_type_id %><br>
+    <%= f.number_field :service_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :initial_installment_f %><br>
+    <%= f.text_field :initial_installment_f %>
+  </div>
+  <div class="field">
+    <%= f.label :pack_appl_exists %><br>
+    <%= f.text_field :pack_appl_exists %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmo_id %><br>
+    <%= f.text_field :leqmo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmo_phone_no %><br>
+    <%= f.text_field :leqmo_phone_no %>
+  </div>
+  <div class="field">
+    <%= f.label :isp_account %><br>
+    <%= f.text_field :isp_account %>
+  </div>
+  <div class="field">
+    <%= f.label :isp_account_reading %><br>
+    <%= f.text_field :isp_account_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :isp_password %><br>
+    <%= f.text_field :isp_password %>
+  </div>
+  <div class="field">
+    <%= f.label :isp_password_reading %><br>
+    <%= f.text_field :isp_password_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :movie_type_id %><br>
+    <%= f.number_field :movie_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmovie_login_id %><br>
+    <%= f.text_field :leqmovie_login_id %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmovie_login_id_reading %><br>
+    <%= f.text_field :leqmovie_login_id_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmovie_password %><br>
+    <%= f.text_field :leqmovie_password %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmovie_password_reading %><br>
+    <%= f.text_field :leqmovie_password_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_code %><br>
+    <%= f.text_field :gift_code %>
+  </div>
+  <div class="field">
+    <%= f.label :o_hikari_tel_ace_f %><br>
+    <%= f.text_field :o_hikari_tel_ace_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_hikari_tel_f %><br>
+    <%= f.text_field :o_hikari_tel_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_number_display_f %><br>
+    <%= f.text_field :o_number_display_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_number_request_f %><br>
+    <%= f.text_field :o_number_request_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_catch_phone_f %><br>
+    <%= f.text_field :o_catch_phone_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_auto_transfer_f %><br>
+    <%= f.text_field :o_auto_transfer_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_nuisance_call_block_f %><br>
+    <%= f.text_field :o_nuisance_call_block_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_missed_call_notify_mail_f %><br>
+    <%= f.text_field :o_missed_call_notify_mail_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_tv_phone_f %><br>
+    <%= f.text_field :o_tv_phone_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_hq_sound_phone_f %><br>
+    <%= f.text_field :o_hq_sound_phone_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_data_connect_f %><br>
+    <%= f.text_field :o_data_connect_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_remote_service_f %><br>
+    <%= f.text_field :o_remote_service_f %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_1 %><br>
+    <%= f.text_field :o_mail_f_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_1 %><br>
+    <%= f.text_field :o_first_choice_account_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_1 %><br>
+    <%= f.text_field :o_second_choice_account_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_1 %><br>
+    <%= f.text_field :o_regist_account_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_2 %><br>
+    <%= f.text_field :o_mail_f_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_2 %><br>
+    <%= f.text_field :o_first_choice_account_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_2 %><br>
+    <%= f.text_field :o_second_choice_account_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_2 %><br>
+    <%= f.text_field :o_regist_account_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_3 %><br>
+    <%= f.text_field :o_mail_f_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_3 %><br>
+    <%= f.text_field :o_first_choice_account_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_3 %><br>
+    <%= f.text_field :o_second_choice_account_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_3 %><br>
+    <%= f.text_field :o_regist_account_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_4 %><br>
+    <%= f.text_field :o_mail_f_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_4 %><br>
+    <%= f.text_field :o_first_choice_account_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_4 %><br>
+    <%= f.text_field :o_second_choice_account_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_4 %><br>
+    <%= f.text_field :o_regist_account_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_5 %><br>
+    <%= f.text_field :o_mail_f_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_5 %><br>
+    <%= f.text_field :o_first_choice_account_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_5 %><br>
+    <%= f.text_field :o_second_choice_account_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_5 %><br>
+    <%= f.text_field :o_regist_account_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_6 %><br>
+    <%= f.text_field :o_mail_f_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_6 %><br>
+    <%= f.text_field :o_first_choice_account_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_6 %><br>
+    <%= f.text_field :o_second_choice_account_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_6 %><br>
+    <%= f.text_field :o_regist_account_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_7 %><br>
+    <%= f.text_field :o_mail_f_7 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_7 %><br>
+    <%= f.text_field :o_first_choice_account_7 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_7 %><br>
+    <%= f.text_field :o_second_choice_account_7 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_7 %><br>
+    <%= f.text_field :o_regist_account_7 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_8 %><br>
+    <%= f.text_field :o_mail_f_8 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_8 %><br>
+    <%= f.text_field :o_first_choice_account_8 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_8 %><br>
+    <%= f.text_field :o_second_choice_account_8 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_8 %><br>
+    <%= f.text_field :o_regist_account_8 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_9 %><br>
+    <%= f.text_field :o_mail_f_9 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_9 %><br>
+    <%= f.text_field :o_first_choice_account_9 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_9 %><br>
+    <%= f.text_field :o_second_choice_account_9 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_9 %><br>
+    <%= f.text_field :o_regist_account_9 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_mail_f_10 %><br>
+    <%= f.text_field :o_mail_f_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_first_choice_account_10 %><br>
+    <%= f.text_field :o_first_choice_account_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_second_choice_account_10 %><br>
+    <%= f.text_field :o_second_choice_account_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :o_regist_account_10 %><br>
+    <%= f.text_field :o_regist_account_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :ntt_const_reseach_date %><br>
+    <%= f.date_select :ntt_const_reseach_date %>
+  </div>
+  <div class="field">
+    <%= f.label :opt_const_date %><br>
+    <%= f.date_select :opt_const_date %>
+  </div>
+  <div class="field">
+    <%= f.label :initial_contract_charge %><br>
+    <%= f.text_field :initial_contract_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :circuit_charge_without_tax %><br>
+    <%= f.text_field :circuit_charge_without_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_method %><br>
+    <%= f.text_field :billing_method %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_id %><br>
+    <%= f.text_field :billing_id %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_destination %><br>
+    <%= f.text_field :billing_destination %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_agency_appl_date %><br>
+    <%= f.date_select :payment_agency_appl_date %>
+  </div>
+  <div class="field">
+    <%= f.label :credit_customer_no %><br>
+    <%= f.text_field :credit_customer_no %>
+  </div>
+  <div class="field">
+    <%= f.label :credit_additional_no %><br>
+    <%= f.text_field :credit_additional_no %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_cd %><br>
+    <%= f.text_field :bank_cd %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_nm %><br>
+    <%= f.text_field :bank_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_kana %><br>
+    <%= f.text_field :bank_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_cd %><br>
+    <%= f.text_field :branch_cd %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_nm %><br>
+    <%= f.text_field :branch_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_kana %><br>
+    <%= f.text_field :branch_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :account_number %><br>
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :account_type %><br>
+    <%= f.text_field :account_type %>
+  </div>
+  <div class="field">
+    <%= f.label :account_holder_nm %><br>
+    <%= f.text_field :account_holder_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :account_holder_kana %><br>
+    <%= f.text_field :account_holder_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :japan_post_kigou %><br>
+    <%= f.text_field :japan_post_kigou %>
+  </div>
+  <div class="field">
+    <%= f.label :japan_post_bangou %><br>
+    <%= f.text_field :japan_post_bangou %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_zip_cd %><br>
+    <%= f.text_field :billing_zip_cd %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_addr1 %><br>
+    <%= f.text_field :billing_addr1 %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_addr2 %><br>
+    <%= f.text_field :billing_addr2 %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_addr3 %><br>
+    <%= f.text_field :billing_addr3 %>
+  </div>
+  <div class="field">
+    <%= f.label :create_user_id %><br>
+    <%= f.number_field :create_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :update_user_id %><br>
+    <%= f.number_field :update_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br>
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_destination_nm %><br>
+    <%= f.text_field :billing_destination_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :leqmovie_unext_manage_id %><br>
+    <%= f.text_field :leqmovie_unext_manage_id %>
+  </div>
+  <div class="field">
+    <%= f.label :credit_authorize_res_code %><br>
+    <%= f.text_field :credit_authorize_res_code %>
+  </div>
+  <div class="field">
+    <%= f.label :credit_authorize_result %><br>
+    <%= f.text_area :credit_authorize_result %>
+  </div>
+  <div class="field">
+    <%= f.label :billing_start_date %><br>
+    <%= f.date_select :billing_start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :construct_note %><br>
+    <%= f.text_area :construct_note %>
+  </div>
+  <div class="field">
+    <%= f.label :cancel_reason %><br>
+    <%= f.text_field :cancel_reason %>
+  </div>
+  <div class="field">
+    <%= f.label :cancel_recept_date %><br>
+    <%= f.date_select :cancel_recept_date %>
+  </div>
+  <div class="field">
+    <%= f.label :cancel_date %><br>
+    <%= f.date_select :cancel_date %>
+  </div>
+  <div class="field">
+    <%= f.label :cancel_reason_note %><br>
+    <%= f.text_area :cancel_reason_note %>
+  </div>
+  <div class="field">
+    <%= f.label :retraction_f %><br>
+    <%= f.text_field :retraction_f %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_room_no %><br>
+    <%= f.text_field :dest_room_no %>
+  </div>
+  <div class="field">
+    <%= f.label :service_stop_date %><br>
+    <%= f.date_select :service_stop_date %>
+  </div>
+  <div class="field">
+    <%= f.label :ntt_system_input_date %><br>
+    <%= f.date_select :ntt_system_input_date %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_cancel_date %><br>
+    <%= f.date_select :entry_cancel_date %>
+  </div>
+  <div class="field">
+    <%= f.label :identification_ng_date %><br>
+    <%= f.date_select :identification_ng_date %>
+  </div>
+  <div class="field">
+    <%= f.label :open_ng_date %><br>
+    <%= f.date_select :open_ng_date %>
+  </div>
+  <div class="field">
+    <%= f.label :identification_doc_approval %><br>
+    <%= f.text_field :identification_doc_approval %>
+  </div>
+  <div class="field">
+    <%= f.label :fee_id %><br>
+    <%= f.number_field :fee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :o_home_gateway_f %><br>
+    <%= f.text_field :o_home_gateway_f %>
+  </div>
+  <div class="field">
+    <%= f.label :prev_movie_type_id %><br>
+    <%= f.number_field :prev_movie_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_change_recept_date %><br>
+    <%= f.date_select :plan_change_recept_date %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_change_date %><br>
+    <%= f.date_select :plan_change_date %>
+  </div>
+  <div class="field">
+    <%= f.label :prev_leqmovie_unext_manage_id %><br>
+    <%= f.text_field :prev_leqmovie_unext_manage_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  personal_cd: MyString
+  parent_customer_id: 1
+  member_store_cd: MyString
+  charge_cd: MyString
+  customer_nm: MyString
+  customer_kana: MyString
+  customer_type: MyString
+  is_manage_company: MyString
+  president_nm: MyString
+  post: MyString
+  birth: 2017-02-22
+  sex: MyString
+  zip_cd: MyString
+  addr1: MyString
+  addr2: MyString
+  addr3: MyString
+  tel: MyString
+  fax: MyString
+  mobile_number: MyString
+  email: MyString
+  si_owner_f: MyString
+  si_client_f: MyString
+  bb_owner_f: MyString
+  bb_agency_f: MyString
+  note: MyText
+  create_user_id: 1
+  update_user_id: 1
+  created_at: 2017-02-22 19:18:11
+  updated_at: 2017-02-22 19:18:11
+
+two:
+  id: 1
+  personal_cd: MyString
+  parent_customer_id: 1
+  member_store_cd: MyString
+  charge_cd: MyString
+  customer_nm: MyString
+  customer_kana: MyString
+  customer_type: MyString
+  is_manage_company: MyString
+  president_nm: MyString
+  post: MyString
+  birth: 2017-02-22
+  sex: MyString
+  zip_cd: MyString
+  addr1: MyString
+  addr2: MyString
+  addr3: MyString
+  tel: MyString
+  fax: MyString
+  mobile_number: MyString
+  email: MyString
+  si_owner_f: MyString
+  si_client_f: MyString
+  bb_owner_f: MyString
+  bb_agency_f: MyString
+  note: MyText
+  create_user_id: 1
+  update_user_id: 1
+  created_at: 2017-02-22 19:18:11
+  updated_at: 2017-02-22 19:18:11

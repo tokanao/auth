@@ -1,0 +1,353 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Contracts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Kintone</th>
+      <th>Hikari contract no</th>
+      <th>Charge cd</th>
+      <th>Contract status</th>
+      <th>Contract date</th>
+      <th>Hikari contract no reading</th>
+      <th>Mypage password</th>
+      <th>Mypage password reading</th>
+      <th>Personal identification doc</th>
+      <th>Tnp file 1 nm</th>
+      <th>Tnp file 2 nm</th>
+      <th>Tnp file 3 nm</th>
+      <th>Reject reason 1</th>
+      <th>Reject reason other 1</th>
+      <th>Reject reason 2</th>
+      <th>Reject reason other 2</th>
+      <th>Reject reason 3</th>
+      <th>Reject reason other 3</th>
+      <th>Customer</th>
+      <th>Manage company</th>
+      <th>Dest</th>
+      <th>Dest tel</th>
+      <th>Dest place same f</th>
+      <th>Dest tel nominee</th>
+      <th>Dest tel nominee relationship</th>
+      <th>Dest tel nominee sei kanji</th>
+      <th>Dest tel nominee mei kanji</th>
+      <th>Dest tel nominee sei kana</th>
+      <th>Dest tel nominee mei kana</th>
+      <th>Application date</th>
+      <th>Notice delivered f</th>
+      <th>New diversion</th>
+      <th>Diversion appr no</th>
+      <th>Diversion appr no get date</th>
+      <th>Penalty for diversion</th>
+      <th>Ntt recept no</th>
+      <th>Arena so no</th>
+      <th>Caf no</th>
+      <th>Caf no reading</th>
+      <th>Access key</th>
+      <th>Access key reading</th>
+      <th>Item plan</th>
+      <th>Service type</th>
+      <th>Initial installment f</th>
+      <th>Pack appl exists</th>
+      <th>Leqmo</th>
+      <th>Leqmo phone no</th>
+      <th>Isp account</th>
+      <th>Isp account reading</th>
+      <th>Isp password</th>
+      <th>Isp password reading</th>
+      <th>Movie type</th>
+      <th>Leqmovie login</th>
+      <th>Leqmovie login id reading</th>
+      <th>Leqmovie password</th>
+      <th>Leqmovie password reading</th>
+      <th>Gift code</th>
+      <th>O hikari tel ace f</th>
+      <th>O hikari tel f</th>
+      <th>O number display f</th>
+      <th>O number request f</th>
+      <th>O catch phone f</th>
+      <th>O auto transfer f</th>
+      <th>O nuisance call block f</th>
+      <th>O missed call notify mail f</th>
+      <th>O tv phone f</th>
+      <th>O hq sound phone f</th>
+      <th>O data connect f</th>
+      <th>O remote service f</th>
+      <th>O mail f 1</th>
+      <th>O first choice account 1</th>
+      <th>O second choice account 1</th>
+      <th>O regist account 1</th>
+      <th>O mail f 2</th>
+      <th>O first choice account 2</th>
+      <th>O second choice account 2</th>
+      <th>O regist account 2</th>
+      <th>O mail f 3</th>
+      <th>O first choice account 3</th>
+      <th>O second choice account 3</th>
+      <th>O regist account 3</th>
+      <th>O mail f 4</th>
+      <th>O first choice account 4</th>
+      <th>O second choice account 4</th>
+      <th>O regist account 4</th>
+      <th>O mail f 5</th>
+      <th>O first choice account 5</th>
+      <th>O second choice account 5</th>
+      <th>O regist account 5</th>
+      <th>O mail f 6</th>
+      <th>O first choice account 6</th>
+      <th>O second choice account 6</th>
+      <th>O regist account 6</th>
+      <th>O mail f 7</th>
+      <th>O first choice account 7</th>
+      <th>O second choice account 7</th>
+      <th>O regist account 7</th>
+      <th>O mail f 8</th>
+      <th>O first choice account 8</th>
+      <th>O second choice account 8</th>
+      <th>O regist account 8</th>
+      <th>O mail f 9</th>
+      <th>O first choice account 9</th>
+      <th>O second choice account 9</th>
+      <th>O regist account 9</th>
+      <th>O mail f 10</th>
+      <th>O first choice account 10</th>
+      <th>O second choice account 10</th>
+      <th>O regist account 10</th>
+      <th>Ntt const reseach date</th>
+      <th>Opt const date</th>
+      <th>Initial contract charge</th>
+      <th>Circuit charge without tax</th>
+      <th>Billing method</th>
+      <th>Billing</th>
+      <th>Billing destination</th>
+      <th>Payment agency appl date</th>
+      <th>Credit customer no</th>
+      <th>Credit additional no</th>
+      <th>Bank cd</th>
+      <th>Bank nm</th>
+      <th>Bank kana</th>
+      <th>Branch cd</th>
+      <th>Branch nm</th>
+      <th>Branch kana</th>
+      <th>Account number</th>
+      <th>Account type</th>
+      <th>Account holder nm</th>
+      <th>Account holder kana</th>
+      <th>Japan post kigou</th>
+      <th>Japan post bangou</th>
+      <th>Billing zip cd</th>
+      <th>Billing addr1</th>
+      <th>Billing addr2</th>
+      <th>Billing addr3</th>
+      <th>Create user</th>
+      <th>Update user</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Billing destination nm</th>
+      <th>Leqmovie unext manage</th>
+      <th>Credit authorize res code</th>
+      <th>Credit authorize result</th>
+      <th>Billing start date</th>
+      <th>Construct note</th>
+      <th>Cancel reason</th>
+      <th>Cancel recept date</th>
+      <th>Cancel date</th>
+      <th>Cancel reason note</th>
+      <th>Retraction f</th>
+      <th>Dest room no</th>
+      <th>Service stop date</th>
+      <th>Ntt system input date</th>
+      <th>Entry cancel date</th>
+      <th>Identification ng date</th>
+      <th>Open ng date</th>
+      <th>Identification doc approval</th>
+      <th>Fee</th>
+      <th>O home gateway f</th>
+      <th>Prev movie type</th>
+      <th>Plan change recept date</th>
+      <th>Plan change date</th>
+      <th>Prev leqmovie unext manage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contracts.each do |contract| %>
+      <tr>
+        <td><%= contract.id %></td>
+        <td><%= contract.kintone_id %></td>
+        <td><%= contract.hikari_contract_no %></td>
+        <td><%= contract.charge_cd %></td>
+        <td><%= contract.contract_status %></td>
+        <td><%= contract.contract_date %></td>
+        <td><%= contract.hikari_contract_no_reading %></td>
+        <td><%= contract.mypage_password %></td>
+        <td><%= contract.mypage_password_reading %></td>
+        <td><%= contract.personal_identification_doc %></td>
+        <td><%= contract.tnp_file_1_nm %></td>
+        <td><%= contract.tnp_file_2_nm %></td>
+        <td><%= contract.tnp_file_3_nm %></td>
+        <td><%= contract.reject_reason_1 %></td>
+        <td><%= contract.reject_reason_other_1 %></td>
+        <td><%= contract.reject_reason_2 %></td>
+        <td><%= contract.reject_reason_other_2 %></td>
+        <td><%= contract.reject_reason_3 %></td>
+        <td><%= contract.reject_reason_other_3 %></td>
+        <td><%= contract.customer_id %></td>
+        <td><%= contract.manage_company_id %></td>
+        <td><%= contract.dest_id %></td>
+        <td><%= contract.dest_tel %></td>
+        <td><%= contract.dest_place_same_f %></td>
+        <td><%= contract.dest_tel_nominee %></td>
+        <td><%= contract.dest_tel_nominee_relationship %></td>
+        <td><%= contract.dest_tel_nominee_sei_kanji %></td>
+        <td><%= contract.dest_tel_nominee_mei_kanji %></td>
+        <td><%= contract.dest_tel_nominee_sei_kana %></td>
+        <td><%= contract.dest_tel_nominee_mei_kana %></td>
+        <td><%= contract.application_date %></td>
+        <td><%= contract.notice_delivered_f %></td>
+        <td><%= contract.new_diversion %></td>
+        <td><%= contract.diversion_appr_no %></td>
+        <td><%= contract.diversion_appr_no_get_date %></td>
+        <td><%= contract.penalty_for_diversion %></td>
+        <td><%= contract.ntt_recept_no %></td>
+        <td><%= contract.arena_so_no %></td>
+        <td><%= contract.caf_no %></td>
+        <td><%= contract.caf_no_reading %></td>
+        <td><%= contract.access_key %></td>
+        <td><%= contract.access_key_reading %></td>
+        <td><%= contract.item_plan_id %></td>
+        <td><%= contract.service_type_id %></td>
+        <td><%= contract.initial_installment_f %></td>
+        <td><%= contract.pack_appl_exists %></td>
+        <td><%= contract.leqmo_id %></td>
+        <td><%= contract.leqmo_phone_no %></td>
+        <td><%= contract.isp_account %></td>
+        <td><%= contract.isp_account_reading %></td>
+        <td><%= contract.isp_password %></td>
+        <td><%= contract.isp_password_reading %></td>
+        <td><%= contract.movie_type_id %></td>
+        <td><%= contract.leqmovie_login_id %></td>
+        <td><%= contract.leqmovie_login_id_reading %></td>
+        <td><%= contract.leqmovie_password %></td>
+        <td><%= contract.leqmovie_password_reading %></td>
+        <td><%= contract.gift_code %></td>
+        <td><%= contract.o_hikari_tel_ace_f %></td>
+        <td><%= contract.o_hikari_tel_f %></td>
+        <td><%= contract.o_number_display_f %></td>
+        <td><%= contract.o_number_request_f %></td>
+        <td><%= contract.o_catch_phone_f %></td>
+        <td><%= contract.o_auto_transfer_f %></td>
+        <td><%= contract.o_nuisance_call_block_f %></td>
+        <td><%= contract.o_missed_call_notify_mail_f %></td>
+        <td><%= contract.o_tv_phone_f %></td>
+        <td><%= contract.o_hq_sound_phone_f %></td>
+        <td><%= contract.o_data_connect_f %></td>
+        <td><%= contract.o_remote_service_f %></td>
+        <td><%= contract.o_mail_f_1 %></td>
+        <td><%= contract.o_first_choice_account_1 %></td>
+        <td><%= contract.o_second_choice_account_1 %></td>
+        <td><%= contract.o_regist_account_1 %></td>
+        <td><%= contract.o_mail_f_2 %></td>
+        <td><%= contract.o_first_choice_account_2 %></td>
+        <td><%= contract.o_second_choice_account_2 %></td>
+        <td><%= contract.o_regist_account_2 %></td>
+        <td><%= contract.o_mail_f_3 %></td>
+        <td><%= contract.o_first_choice_account_3 %></td>
+        <td><%= contract.o_second_choice_account_3 %></td>
+        <td><%= contract.o_regist_account_3 %></td>
+        <td><%= contract.o_mail_f_4 %></td>
+        <td><%= contract.o_first_choice_account_4 %></td>
+        <td><%= contract.o_second_choice_account_4 %></td>
+        <td><%= contract.o_regist_account_4 %></td>
+        <td><%= contract.o_mail_f_5 %></td>
+        <td><%= contract.o_first_choice_account_5 %></td>
+        <td><%= contract.o_second_choice_account_5 %></td>
+        <td><%= contract.o_regist_account_5 %></td>
+        <td><%= contract.o_mail_f_6 %></td>
+        <td><%= contract.o_first_choice_account_6 %></td>
+        <td><%= contract.o_second_choice_account_6 %></td>
+        <td><%= contract.o_regist_account_6 %></td>
+        <td><%= contract.o_mail_f_7 %></td>
+        <td><%= contract.o_first_choice_account_7 %></td>
+        <td><%= contract.o_second_choice_account_7 %></td>
+        <td><%= contract.o_regist_account_7 %></td>
+        <td><%= contract.o_mail_f_8 %></td>
+        <td><%= contract.o_first_choice_account_8 %></td>
+        <td><%= contract.o_second_choice_account_8 %></td>
+        <td><%= contract.o_regist_account_8 %></td>
+        <td><%= contract.o_mail_f_9 %></td>
+        <td><%= contract.o_first_choice_account_9 %></td>
+        <td><%= contract.o_second_choice_account_9 %></td>
+        <td><%= contract.o_regist_account_9 %></td>
+        <td><%= contract.o_mail_f_10 %></td>
+        <td><%= contract.o_first_choice_account_10 %></td>
+        <td><%= contract.o_second_choice_account_10 %></td>
+        <td><%= contract.o_regist_account_10 %></td>
+        <td><%= contract.ntt_const_reseach_date %></td>
+        <td><%= contract.opt_const_date %></td>
+        <td><%= contract.initial_contract_charge %></td>
+        <td><%= contract.circuit_charge_without_tax %></td>
+        <td><%= contract.billing_method %></td>
+        <td><%= contract.billing_id %></td>
+        <td><%= contract.billing_destination %></td>
+        <td><%= contract.payment_agency_appl_date %></td>
+        <td><%= contract.credit_customer_no %></td>
+        <td><%= contract.credit_additional_no %></td>
+        <td><%= contract.bank_cd %></td>
+        <td><%= contract.bank_nm %></td>
+        <td><%= contract.bank_kana %></td>
+        <td><%= contract.branch_cd %></td>
+        <td><%= contract.branch_nm %></td>
+        <td><%= contract.branch_kana %></td>
+        <td><%= contract.account_number %></td>
+        <td><%= contract.account_type %></td>
+        <td><%= contract.account_holder_nm %></td>
+        <td><%= contract.account_holder_kana %></td>
+        <td><%= contract.japan_post_kigou %></td>
+        <td><%= contract.japan_post_bangou %></td>
+        <td><%= contract.billing_zip_cd %></td>
+        <td><%= contract.billing_addr1 %></td>
+        <td><%= contract.billing_addr2 %></td>
+        <td><%= contract.billing_addr3 %></td>
+        <td><%= contract.create_user_id %></td>
+        <td><%= contract.update_user_id %></td>
+        <td><%= contract.created_at %></td>
+        <td><%= contract.updated_at %></td>
+        <td><%= contract.billing_destination_nm %></td>
+        <td><%= contract.leqmovie_unext_manage_id %></td>
+        <td><%= contract.credit_authorize_res_code %></td>
+        <td><%= contract.credit_authorize_result %></td>
+        <td><%= contract.billing_start_date %></td>
+        <td><%= contract.construct_note %></td>
+        <td><%= contract.cancel_reason %></td>
+        <td><%= contract.cancel_recept_date %></td>
+        <td><%= contract.cancel_date %></td>
+        <td><%= contract.cancel_reason_note %></td>
+        <td><%= contract.retraction_f %></td>
+        <td><%= contract.dest_room_no %></td>
+        <td><%= contract.service_stop_date %></td>
+        <td><%= contract.ntt_system_input_date %></td>
+        <td><%= contract.entry_cancel_date %></td>
+        <td><%= contract.identification_ng_date %></td>
+        <td><%= contract.open_ng_date %></td>
+        <td><%= contract.identification_doc_approval %></td>
+        <td><%= contract.fee_id %></td>
+        <td><%= contract.o_home_gateway_f %></td>
+        <td><%= contract.prev_movie_type_id %></td>
+        <td><%= contract.plan_change_recept_date %></td>
+        <td><%= contract.plan_change_date %></td>
+        <td><%= contract.prev_leqmovie_unext_manage_id %></td>
+        <td><%= link_to 'Show', contract %></td>
+        <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+        <td><%= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contract', new_contract_path %>
