@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # TODO
   include CanCan::ControllerAdditions
 
   # Prevent CSRF attacks by raising an exception.
@@ -9,10 +10,12 @@ class ApplicationController < ActionController::Base
     redirect_to '/users/login', danger: "ログインしていません。" if env['warden'].authenticated?(:user) == false
   end
 
+  # TODO
   def current_user
     env['warden'].user(:user)
   end
 
+  # TODO 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }

@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Banken
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -9,13 +8,15 @@ class ApplicationController < ActionController::Base
   end
 
   # ------------------------------------------------------------------------------
+  # TODO
+  include Banken
 
   def banken_user
     # called authorize model
     user = env['warden'].user(:user)
   end
 
-rescue_from Banken::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Banken::NotAuthorizedError, with: :user_not_authorized
 
   private
 

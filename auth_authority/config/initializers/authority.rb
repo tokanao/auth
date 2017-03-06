@@ -1,3 +1,4 @@
+# TODO
 Authority.configure do |config|
 
   # USER_METHOD

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     redirect_to '/users/login', danger: "ログインしていません。" if env['warden'].authenticated?(:user) == false
   end
 
+  # TODO
   def current_user
     env['warden'].user(:user)
   end

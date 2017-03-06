@@ -1,3 +1,4 @@
+# TODO
 class Ability
   include CanCan::Ability
 
@@ -36,8 +37,10 @@ class Ability
     # be singed in
     else
       can :manage, :all
-      cannot :create, Customer
-      cannot :edit, Customer
+      if user.name != "admin"
+        cannot :create, Customer
+        cannot :edit, Customer
+      end
     end
   end
 end

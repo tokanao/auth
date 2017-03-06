@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include TheRole::Controller
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -9,6 +8,11 @@ class ApplicationController < ActionController::Base
     redirect_to '/users/login', danger: "ログインしていません。" if env['warden'].authenticated?(:user) == false
     # current_user = env['warden'].user(:user)
   end
+
+  # ------------------------------------------------------------------------------
+
+  # TODO
+  include TheRole::Controller
 
   # the_role が参照する
   def current_user

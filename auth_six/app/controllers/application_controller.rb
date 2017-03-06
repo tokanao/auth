@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/users/login', danger: "ログインしていません。" if env['warden'].authenticated?(:user) == false
   end
 
+  # ------------------------------------------------------------------------------
+
+  # TODO
   def current_user
     env['warden'].user(:user)
   end
@@ -15,12 +18,12 @@ class ApplicationController < ActionController::Base
 
   protected 
 
-  def abilities
-    @abilities ||= Six.new
-  end
+    def abilities
+      @abilities ||= Six.new
+    end
 
-  # simple delegate method for controller & view
-  def can?(object, action, subject)
-    abilities.allowed?(object, action, subject)
-  end
+    # simple delegate method for controller & view
+    def can?(object, action, subject)
+      abilities.allowed?(object, action, subject)
+    end
 end

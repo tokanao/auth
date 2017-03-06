@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  # TODO
   before_action :login_required
   before_action :role_required, only: [:edit, :new, :create]
 
@@ -69,6 +70,7 @@ class CustomersController < ApplicationController
     def set_customer
       @customer = Customer.find(params[:id])
 
+      # TODO
       for_ownership_check(@customer)
     end
 

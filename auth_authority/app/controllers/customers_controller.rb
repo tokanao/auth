@@ -3,8 +3,8 @@ class CustomersController < ApplicationController
 
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
-  # index 以外を認証
-  # authorize_actions_for Customer, except: :index
+  # TODO: index 以外を認証
+  authorize_actions_for Customer, except: :index
 
   # GET /customers
   # GET /customers.json
@@ -20,7 +20,8 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-    authorize_action_for(@customer)
+    # TODO
+    # authorize_action_for(@customer)
   end
 
   # GET /customers/1/edit

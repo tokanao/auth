@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  # TODO
   # creatable_by?(user)などのメソッドが利用できるようになる。
   include Authority::Abilities
 
@@ -6,6 +7,8 @@ class User < ActiveRecord::Base
   include Authority::UserAbilities
 
   self.authorizer_name = 'UserAuthorizer'
+  # ----
+
 
   def self.authenticate(login_id, login_password)
     return nil if login_id.blank? || login_password.blank?

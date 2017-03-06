@@ -293,6 +293,8 @@ noremap j gj
 noremap k gk
 noremap n nzz
 nnoremap <SNR>117_: :=v:count ? v:count : ''
+nnoremap <SNR>118_: :=v:count ? v:count : ''
+nnoremap <SNR>122_: :=v:count ? v:count : ''
 nnoremap <Plug>TComment_ :TComment
 snoremap <Plug>TComment_\__ :TComment
 nnoremap <Plug>TComment_\__ :TComment
@@ -477,7 +479,7 @@ set comments=:#
 set commentstring=#\ %s
 set display=truncate
 set noequalalways
-set errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_six
+set errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_six
 set expandtab
 set fileencodings=guess,ucs-bom,latin1,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
 set formatexpr=autofmt#japanese#formatexpr()
@@ -528,17 +530,55 @@ set nowrapscan
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/rails_work/auth_six
+cd ~/rails_work/auth/auth_six
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
+badd +32 ~/rails_work/auth/auth_banken/app/controllers/customers_controller.rb
+badd +18 ~/rails_work/auth/auth_banken/.gitignore
+badd +36 ~/LequiosEnterprise/.gitignore
+badd +32 ~/LequiosHikari/.gitignore
+badd +12 ~/rails_work/auth/auth_banken/app/controllers/application_controller.rb
+badd +31 ~/rails_work/auth/auth_banken/app/controllers/users_controller.rb
+badd +12 ~/rails_work/auth/auth_banken/config/routes.rb
+badd +17 ~/rails_work/auth/auth_banken/config/initializers/warden.rb
+badd +7 ~/rails_work/auth/auth_banken/app/models/user.rb
+badd +47 ~/rails_work/auth/auth_banken/Gemfile
+badd +15 ~/rails_work/auth/auth_banken/app/views/layouts/application.html.erb
+badd +4 ~/LequiosEnterprise/config/initializers/warden.rb
+badd +21 ~/LequiosEnterprise/app/controllers/application_controller.rb
+badd +6 ~/rails_work/auth/auth_banken/app/loyalties/application_loyalty.rb
+badd +1 ~/rails_work/auth/auth_banken/app/loyalties/customer_loyalty.rb
+badd +5 ~/rails_work/auth/auth_banken/app/loyalties/customers_loyalty.rb
+badd +3 ~/rails_work/auth/auth_banken/vendor/bundle/ruby/2.2.0/gems/banken-1.0.2/lib/generators/banken/install/templates/application_loyalty.rb
+badd +1 ~/rails_work/auth_banken/app/loyalties/customers_loyalty.rb
+badd +1 ~/rails_work/auth_banken/app/controllers/customers_controller.rb
+badd +12 ~/rails_work/auth/auth_authority/app/controllers/application_controller.rb
+badd +44 ~/rails_work/auth/auth_authority/Gemfile
+badd +22 ~/rails_work/auth/auth_authority/config/initializers/authority.rb
+badd +8 ~/rails_work/auth/auth_authority/app/models/user.rb
+badd +8 ~/rails_work/auth/auth_authority/app/controllers/customers_controller.rb
+badd +4 ~/rails_work/auth/auth_authority/app/authorizers/customer_authorizer.rb
+badd +6 ~/rails_work/auth/auth_authority/app/authorizers/application_authorizer.rb
+badd +7 ~/rails_work/auth/auth_authority/app/models/customer.rb
+badd +2 ~/rails_work/auth/auth_authority/app/authorizers/customers_authorizer.rb
+badd +5 ~/rails_work/auth/auth_authority/app/authorizers/user_authorizer.rb
+badd +5 ~/rails_work/auth/auth_authority/public/403.html
+badd +0 ~/rails_work/auth_authority/app/authorizers/user_authorizer.rb
+badd +0 ~/rails_work/auth_authority/app/controllers/customers_controller.rb
+badd +19 ~/rails_work/auth/auth_granted/app/controllers/customers_controller.rb
+badd +47 ~/rails_work/auth/auth_granted/app/policies/access_policy.rb
+badd +15 ~/rails_work/auth/auth_granted/app/controllers/application_controller.rb
+badd +20 ~/rails_work/auth/auth_the_role/app/controllers/application_controller.rb
+badd +3 ~/rails_work/auth/auth_the_role/app/controllers/customers_controller.rb
 badd +1 app/controllers/application_controller.rb
 badd +32 Gemfile
 badd +180 Gemfile.lock
 badd +1 app/controllers/customers_controller.rb
-badd +1 app/models/customer.rb
+badd +12 app/models/customer.rb
 badd +64 public/404.html
+badd +11 config/routes.rb
 argglobal
 silent! argdel *
 edit app/models/customer.rb
@@ -554,9 +594,9 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 7 + 12) / 25)
-exe '2resize ' . ((&lines * 10 + 12) / 25)
-exe '3resize ' . ((&lines * 3 + 12) / 25)
+exe '1resize ' . ((&lines * 18 + 27) / 55)
+exe '2resize ' . ((&lines * 25 + 27) / 55)
+exe '3resize ' . ((&lines * 7 + 27) / 55)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -675,12 +715,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 9 - ((3 * winheight(0) + 3) / 7)
+let s:l = 16 - ((14 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
-normal! 027|
+16
+normal! 09|
 wincmd w
 argglobal
 edit app/controllers/customers_controller.rb
@@ -801,12 +841,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 7 - ((2 * winheight(0) + 5) / 10)
+let s:l = 56 - ((13 * winheight(0) + 12) / 25)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 016|
+56
+normal! 055|
 wincmd w
 argglobal
 edit app/controllers/application_controller.rb
@@ -927,16 +967,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((1 * winheight(0) + 1) / 3)
+let s:l = 19 - ((3 * winheight(0) + 3) / 7)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
-normal! 03|
+19
+normal! 012|
 wincmd w
-exe '1resize ' . ((&lines * 7 + 12) / 25)
-exe '2resize ' . ((&lines * 10 + 12) / 25)
-exe '3resize ' . ((&lines * 3 + 12) / 25)
+exe '1resize ' . ((&lines * 18 + 27) / 55)
+exe '2resize ' . ((&lines * 25 + 27) / 55)
+exe '3resize ' . ((&lines * 7 + 27) / 55)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -3,22 +3,39 @@
 
 https://www.ruby-toolbox.com/categories/rails_authorization
 
+※ 各プロジェクト配下のソースのポイントに "TODO" を埋め込んでいる
+
+- アクセスルール：
+>customers/new に対して、ログインアカウント名が "admin" 以外はアクセス制限をかけている
+
 ---
-## 1. banken work environment
-
-$ be rails new auth_banken -d postgresql
-
-cd banken
+## 各種共通 Rails プロジェクト作成
+```bash
+rails new {proj_name} -d postgresql
+cd {proj_name}
 rbenv local 2.2.5
 rbenv rehash
 rbenv exec gem install bundler
 rbenv rehash
-rbenv exec which bundler
+rbenv exec gem which bundler
+```
 
+### DB作成と接続設定
+```bash
+psql postgres
+postgres=# create database {db_name}  with owner="toka";
+vi config/database.yml
+```
+
+
+
+## 1. banken work environment
+```bash
 vi Gemfile
 bundle install --path vendor/bundle
 
 vi config/database.yml
+```
 
 ```bash
 bundle exec rails g scaffold user id:integer name:string login_id:string login_password:string created_at:datetime updated_at:datetime --skip-migration
@@ -28,42 +45,8 @@ bundle exec rails g scaffold customer id:integer personal_cd:string parent_custo
 ※ ほぼ全ての権限認証の gem において、current_user(devise 標準？) で現セッションのユーザーを暗黙的に取得している事がおおいので、application_controller.rb に以下を定義しておいた方がよい（warden の場合）
 
 ```ruby
+vi app/controller/application_controller.rb
 def current_user
   env['warden'].user(:user)
 end
 ```
-
-### 2.worden
-new:
-```
-vi app/views/users/login.html.slim
-vi config/initializers/warden.rb
-```
-
-modified:
-```
-vi app/controllers/application_controller.rb
-vi app/controllers/customers_controller.rb
-vi app/controllers/users_controller.rb
-vi app/models/user.rb
-vi app/views/layouts/application.html.erb
-vi config/routes.rb
-```
-
-#### 3.1. cancancan
-
-#### 3.2. pundit
-
-#### 3.3. banken
-vi app/controllers/application_controller.rb
-bundle exec rails g banken:install
-bundle exec rails g banken:loyalty {対象モデル}
-
-vi app/controllers/application_controller.rb
-vi app/controllers/customers_controller.rb
-vi app/views/layouts/application.html.erb
-
-
-#### 3.4.
-
-#### 3.5. the_role

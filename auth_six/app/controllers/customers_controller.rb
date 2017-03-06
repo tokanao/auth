@@ -3,8 +3,9 @@ class CustomersController < ApplicationController
 
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  # TODO
   before_filter :add_abilities
-  before_filter :check_abilities
+  # before_filter :check_abilities
 
   # GET /customers
   # GET /customers.json
@@ -20,7 +21,11 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-    # head(404) and return unless can?(current_user, :edit_customer, @customer)
+
+    # TODO
+    unless can?(current_user, :edit_customer, @customer)
+      redirect_to root_path, alert: '権限がありません'
+    end
   end
 
   # GET /customers/1/edit
@@ -69,14 +74,14 @@ class CustomersController < ApplicationController
 
   protected
 
+    # TODO
     def add_abilities
       abilities << Customer
     end
-    
     def check_abilities
        unless can?(current_user, :customer, Customer)
-binding.pry 
           head(404) 
+          # redirect_to root_path
       end
     end
 

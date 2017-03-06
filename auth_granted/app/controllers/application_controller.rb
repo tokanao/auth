@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
   rescue_from "AccessGranted::AccessDenied" do |exception|
     redirect_to root_path, alert: "You don't have permission to access this page."
   end
+
+  # TODO
+  def current_user
+    env['warden'].user(:user)
+  end
 end

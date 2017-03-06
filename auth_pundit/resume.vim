@@ -76,16 +76,16 @@ nmap u <Plug>(emmet-update-tag)
 nmap ; <Plug>(emmet-expand-word)
 vmap , <Plug>(emmet-expand-abbr)
 nmap , <Plug>(emmet-expand-abbr)
-nmap  <Plug>TComment_
-nmap 1 <Plug>TComment_1
-nmap 2 <Plug>TComment_2
-nmap 3 <Plug>TComment_3
-nmap 4 <Plug>TComment_4
-nmap 5 <Plug>TComment_5
-nmap 6 <Plug>TComment_6
-nmap 7 <Plug>TComment_7
-nmap 8 <Plug>TComment_8
 nmap 9 <Plug>TComment_9
+nmap 8 <Plug>TComment_8
+nmap 7 <Plug>TComment_7
+nmap 6 <Plug>TComment_6
+nmap 5 <Plug>TComment_5
+nmap 4 <Plug>TComment_4
+nmap 3 <Plug>TComment_3
+nmap 2 <Plug>TComment_2
+nmap 1 <Plug>TComment_1
+nmap  <Plug>TComment_
 vmap 9 <Plug>TComment_9
 omap 9 <Plug>TComment_9
 vmap 8 <Plug>TComment_8
@@ -121,8 +121,8 @@ nmap ,s :source ~/.vimrc
 nmap ,v :tabnew ~/.vimrc
 nmap ,e :Sexplore
 map Q gq
-smap \__ <Plug>TComment_\__
 nmap \__ <Plug>TComment_\__
+smap \__ <Plug>TComment_\__
 nmap \ru :RuboCop
 nmap <silent> \f <Plug>(migemo-searchchar)
 map \_s <Plug>TComment_\_s
@@ -293,19 +293,20 @@ noremap j gj
 noremap k gk
 noremap n nzz
 nnoremap <SNR>117_: :=v:count ? v:count : ''
-nnoremap <Plug>TComment_ :TComment
-snoremap <Plug>TComment_\__ :TComment
-nnoremap <Plug>TComment_\__ :TComment
-nnoremap <Plug>TComment_1 :call tcomment#SetOption("count", 1)
-nnoremap <Plug>TComment_2 :call tcomment#SetOption("count", 2)
-nnoremap <Plug>TComment_3 :call tcomment#SetOption("count", 3)
-nnoremap <Plug>TComment_4 :call tcomment#SetOption("count", 4)
-nnoremap <Plug>TComment_5 :call tcomment#SetOption("count", 5)
-nnoremap <Plug>TComment_6 :call tcomment#SetOption("count", 6)
-nnoremap <Plug>TComment_7 :call tcomment#SetOption("count", 7)
-nnoremap <Plug>TComment_8 :call tcomment#SetOption("count", 8)
-nnoremap <Plug>TComment_9 :call tcomment#SetOption("count", 9)
 nnoremap <SNR>116_: :=v:count ? v:count : ''
+nnoremap <Plug>TComment_9 :call tcomment#SetOption("count", 9)
+nnoremap <Plug>TComment_8 :call tcomment#SetOption("count", 8)
+nnoremap <Plug>TComment_7 :call tcomment#SetOption("count", 7)
+nnoremap <Plug>TComment_6 :call tcomment#SetOption("count", 6)
+nnoremap <Plug>TComment_5 :call tcomment#SetOption("count", 5)
+nnoremap <Plug>TComment_4 :call tcomment#SetOption("count", 4)
+nnoremap <Plug>TComment_3 :call tcomment#SetOption("count", 3)
+nnoremap <Plug>TComment_2 :call tcomment#SetOption("count", 2)
+nnoremap <Plug>TComment_1 :call tcomment#SetOption("count", 1)
+nnoremap <Plug>TComment_\__ :TComment
+snoremap <Plug>TComment_\__ :TComment
+nnoremap <Plug>TComment_ :TComment
+nnoremap <SNR>125_: :=v:count ? v:count : ''
 map <S-Insert> <MiddleMouse>
 noremap <M-Down> }
 noremap <D-Down> <C-End>
@@ -449,10 +450,10 @@ imap r <Plug>TComment_r
 imap   <Plug>TComment_ 
 imap p <Plug>TComment_p
 imap  <Plug>TComment_
-abbr perform start_time = Time.now; p "処理概要 #{Time.now - start_time}s"
-abbr logd logger.debug("DEBUG: params => #{params}")
-abbr deprecated # HACK: deprecated.
 abbr bind binding.pry
+abbr deprecated # HACK: deprecated.
+abbr logd logger.debug("DEBUG: params => #{params}")
+abbr perform start_time = Time.now; p "処理概要 #{Time.now - start_time}s"
 abbr dumptemplatevar <pre><!--{php}-->print_r(get_template_vars());<!--{/php}--></pre>
 abbr debugcon <!--{debug}-->
 abbr tempurl <!--{$TPL_URLPATH}-->
@@ -477,7 +478,7 @@ set comments=:#
 set commentstring=#\ %s
 set display=truncate
 set noequalalways
-set errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
+set errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_pundit
 set expandtab
 set fileencodings=guess,ucs-bom,latin1,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
 set formatexpr=autofmt#japanese#formatexpr()
@@ -528,92 +529,84 @@ set nowrapscan
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/rails_work/auth_pundit
+cd ~/rails_work/auth/auth_pundit
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
+badd +13 ~/Desktop/cancancan.vim
+badd +4 ~/rails_work/auth/auth_cancan/app/controllers/application_controller.rb
+badd +4 ~/rails_work/auth/auth_cancan/Gemfile
+badd +2 ~/rails_work/auth/auth_cancan/app/models/ability.rb
+badd +8 ~/rails_work/auth/auth_cancan/app/controllers/customers_controller.rb
 badd +3 ~/LequiosEnterprise/app/controllers/announcements_controller.rb
 badd +11 ~/LequiosEnterprise/app/controllers/application_controller.rb
-badd +1 ~/LequiosEnterprise/Gemfile
+badd +25 ~/LequiosEnterprise/Gemfile
 badd +172 ~/mynote/syon.changelog
 badd +552 ~/.vimrc
 badd +6 /private/var/folders/mt/j9d7mq912z73fnl52nxh_fjr0000gn/T/vltOQDC/8
-badd +52 Gemfile
+badd +70 Gemfile
 badd +1 ~/rails_work/config
 badd +24 config/database.yml
 badd +37 ~/LequiosEnterprise/config/database.yml
 badd +1 ~/rails_work/app
 badd +3 app/controllers/application_controller.rb
-badd +1 config/Schemafile
+badd +3 config/Schemafile
 badd +5 lib/tasks/model_from_schema.rake
 badd +18 db/schema.rb
 badd +11 ~/LequiosEnterprise/schemas/Schemafile
 badd +1 ~/LequiosEnterprise/schemas/users.schema
 badd +1 ~/LequiosEnterprise/schemas/kt_hikari_personal_contracts.schema
-badd +1 app/policies/application_policy.rb
+badd +14 app/policies/application_policy.rb
 badd +14 app/policies/user_policy.rb
 badd +1 app/policies/contract_policy.rb
 badd +1 app/models/contract.rb
-badd +1 app/controllers/users_controller.rb
+badd +91 app/controllers/users_controller.rb
 badd +13 app/controllers/contracts_controller.rb
 badd +5 ~/LequiosEnterprise/schemas/kt_customers.schema
 badd +4 app/controllers/customers_controller.rb
 badd +9 app/policies/customer_policy.rb
 badd +4 config/environment.rb
 badd +24 config/application.rb
-badd +52 config/initializers/warden.rb
-badd +16 app/models/user.rb
+badd +49 config/initializers/warden.rb
+badd +1 app/models/user.rb
 badd +8 app/views/users/login.html.slim
-badd +5 app/views/layouts/application.html.erb
+badd +13 app/views/layouts/application.html.erb
 badd +14 config/routes.rb
+badd +0 ~/rails_work/auth_pundit/app/policies/customer_policy.rb
+badd +0 ~/rails_work/auth_pundit/app/controllers/customers_controller.rb
+badd +2 ~/rails_work/auth/auth_pundit/app/views/customers/new.html.erb
 argglobal
 silent! argdel *
 set stal=2
-edit config/Schemafile
+edit Gemfile
 set splitbelow splitright
 wincmd _ | wincmd |
 split
 wincmd _ | wincmd |
 split
-wincmd _ | wincmd |
-split
-wincmd _ | wincmd |
-split
-4wincmd k
-wincmd w
-wincmd w
+2wincmd k
 wincmd w
 wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 1 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 80 + 50) / 100)
-exe '2resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 80 + 50) / 100)
-exe '3resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 80 + 50) / 100)
-exe '4resize ' . ((&lines * 7 + 20) / 40)
-exe 'vert 4resize ' . ((&columns * 80 + 50) / 100)
-exe '5resize ' . ((&lines * 2 + 20) / 40)
-exe 'vert 5resize ' . ((&columns * 80 + 50) / 100)
+exe '1resize ' . ((&lines * 12 + 27) / 55)
+exe '2resize ' . ((&lines * 12 + 27) / 55)
+exe '3resize ' . ((&lines * 26 + 27) / 55)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
-nmap <buffer> gf <Plug>RailsTabFind
-nmap <buffer>  <Plug>RailsSplitFind
-nmap <buffer> f <Plug>RailsSplitFind
-nmap <buffer> gf <Plug>RailsFind
 cmap <buffer>  <Plug><cfile>
+cmap <buffer>  <Plug><cword>
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
 setlocal backupcopy=
-setlocal balloonexpr=
+setlocal balloonexpr=RubyBalloonexpr()
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -625,8 +618,8 @@ setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -636,14 +629,14 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
-setlocal define=
+setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_pundit
 setlocal expandtab
-if &filetype != ''
-setlocal filetype=
+if &filetype != 'ruby'
+setlocal filetype=ruby
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -657,18 +650,18 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=tcqmM
+setlocal formatoptions=mMcroql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=0
-setlocal include=
+setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
 setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal indentexpr=GetRubyIndent(v:lnum)
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=
+setlocal keywordprg=ri\ -T\ -f\ bs
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -682,8 +675,8 @@ setlocal modifiable
 setlocal nrformats=bin,hex
 setlocal nonumber
 setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=~/rails_work/auth/auth_pundit/lib,~/rails_work/auth/auth_pundit/vendor,~/rails_work/auth/auth_pundit/app/models/concerns,~/rails_work/auth/auth_pundit/app/controllers/concerns,~/rails_work/auth/auth_pundit/app/controllers,~/rails_work/auth/auth_pundit/app/helpers,~/rails_work/auth/auth_pundit/app/mailers,~/rails_work/auth/auth_pundit/app/models,~/rails_work/auth/auth_pundit/app/jobs,~/rails_work/auth/auth_pundit/app/*,~/rails_work/auth/auth_pundit/app/views,~/rails_work/auth/auth_pundit/test,~/rails_work/auth/auth_pundit/test/unit,~/rails_work/auth/auth_pundit/test/functional,~/rails_work/auth/auth_pundit/test/integration,~/rails_work/auth/auth_pundit/test/controllers,~/rails_work/auth/auth_pundit/test/helpers,~/rails_work/auth/auth_pundit/test/mailers,~/rails_work/auth/auth_pundit/test/models,~/rails_work/auth/auth_pundit/test/jobs,~/rails_work/auth/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth/auth_pundit/vendor/plugins/*/test,~/rails_work/auth/auth_pundit/vendor/rails/*/lib,~/rails_work/auth/auth_pun
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -705,12 +698,12 @@ setlocal statusline=
 setlocal suffixesadd=.rb
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != ''
-setlocal syntax=
+if &syntax != 'ruby'
+setlocal syntax=ruby
 endif
 setlocal tabstop=2
 setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags
+setlocal tags=~/rails_work/auth/auth_pundit/tags,~/rails_work/auth/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal undofile
@@ -720,12 +713,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 10 - ((0 * winheight(0) + 0) / 1)
+let s:l = 71 - ((11 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
-normal! 026|
+71
+normal! 03|
 wincmd w
 argglobal
 edit config/routes.rb
@@ -846,12 +839,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((2 * winheight(0) + 2) / 4)
+let s:l = 12 - ((7 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 12
-normal! 041|
+normal! 046|
 wincmd w
 argglobal
 edit app/controllers/application_controller.rb
@@ -865,7 +858,7 @@ setlocal keymap=
 setlocal noarabic
 setlocal autoindent
 setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
+setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -972,671 +965,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((2 * winheight(0) + 2) / 4)
+let s:l = 20 - ((13 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 023|
+20
+normal! 047|
 wincmd w
-argglobal
-edit Gemfile
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**,~/.rbenv/rbenv.d/exec/gem-rehash,~/.rbenv/versions/2.2.4/lib/r
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 67 - ((0 * winheight(0) + 3) / 7)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-67
-normal! 0
-wincmd w
-argglobal
-edit ~/LequiosEnterprise/Gemfile
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/LequiosEnterprise
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/LequiosEnterprise/lib,~/LequiosEnterprise/vendor,~/LequiosEnterprise/app/models/concerns,~/LequiosEnterprise/app/controllers/concerns,~/LequiosEnterprise/app/controllers,~/LequiosEnterprise/app/helpers,~/LequiosEnterprise/app/mailers,~/LequiosEnterprise/app/models,~/LequiosEnterprise/app/jobs,~/LequiosEnterprise/app/*,~/LequiosEnterprise/app/views,~/LequiosEnterprise/test,~/LequiosEnterprise/test/unit,~/LequiosEnterprise/test/functional,~/LequiosEnterprise/test/integration,~/LequiosEnterprise/test/controllers,~/LequiosEnterprise/test/helpers,~/LequiosEnterprise/test/mailers,~/LequiosEnterprise/test/models,~/LequiosEnterprise/test/jobs,~/LequiosEnterprise/spec,~/LequiosEnterprise/spec/controllers,~/LequiosEnterprise/spec/helpers,~/LequiosEnterprise/spec/mailers,~/LequiosEnterprise/spec/models,~/LequiosEnterprise/spec/views,~/LequiosEnterprise/spec/lib,~/LequiosEnterprise/spec/features,~/LequiosEnterprise/spec/requests,~/LequiosEnterprise/spec/integration,~/LequiosEnterprise/spec/jobs,~/LequiosEnterprise/ven
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/LequiosEnterprise/tags,~/LequiosEnterprise/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 134 - ((1 * winheight(0) + 1) / 2)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-134
-normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 1 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 80 + 50) / 100)
-exe '2resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 80 + 50) / 100)
-exe '3resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 80 + 50) / 100)
-exe '4resize ' . ((&lines * 7 + 20) / 40)
-exe 'vert 4resize ' . ((&columns * 80 + 50) / 100)
-exe '5resize ' . ((&lines * 2 + 20) / 40)
-exe 'vert 5resize ' . ((&columns * 80 + 50) / 100)
-tabedit app/controllers/users_controller.rb
-set splitbelow splitright
-wincmd _ | wincmd |
-split
-wincmd _ | wincmd |
-split
-2wincmd k
-wincmd w
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 5 + 20) / 40)
-exe '2resize ' . ((&lines * 1 + 20) / 40)
-exe '3resize ' . ((&lines * 29 + 20) / 40)
-argglobal
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/app/views/users,~/rails_work/auth_pundit/app/views/application,~/rails_work/auth_pundit/public,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pun
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 13 - ((2 * winheight(0) + 2) / 5)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-13
-normal! 010|
-wincmd w
-argglobal
-edit app/models/user.rb
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**,~/.rbenv/rbenv.d/exec/gem-rehash,~/.rbenv/versions/2.2.4/lib/r
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 4 - ((0 * winheight(0) + 0) / 1)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-4
-normal! 031|
-wincmd w
-argglobal
-edit config/initializers/warden.rb
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=RubyBalloonexpr()
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**,~/.rbenv/rbenv.d/exec/gem-rehash,~/.rbenv/versions/2.2.4/lib/r
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 53 - ((6 * winheight(0) + 14) / 29)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-53
-normal! 039|
-wincmd w
-exe '1resize ' . ((&lines * 5 + 20) / 40)
-exe '2resize ' . ((&lines * 1 + 20) / 40)
-exe '3resize ' . ((&lines * 29 + 20) / 40)
+exe '1resize ' . ((&lines * 12 + 27) / 55)
+exe '2resize ' . ((&lines * 12 + 27) / 55)
+exe '3resize ' . ((&lines * 26 + 27) / 55)
 tabedit app/policies/application_policy.rb
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1650,12 +988,9 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 80 + 50) / 100)
-exe '2resize ' . ((&lines * 10 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 80 + 50) / 100)
-exe '3resize ' . ((&lines * 6 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 80 + 50) / 100)
+exe '1resize ' . ((&lines * 4 + 27) / 55)
+exe '2resize ' . ((&lines * 22 + 27) / 55)
+exe '3resize ' . ((&lines * 24 + 27) / 55)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -1694,7 +1029,7 @@ setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_pundit
 setlocal expandtab
 if &filetype != 'ruby'
 setlocal filetype=ruby
@@ -1737,7 +1072,7 @@ setlocal nrformats=bin,hex
 setlocal nonumber
 setlocal numberwidth=4
 setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**,~/.rbenv/rbenv.d/exec/gem-rehash,~/.rbenv/versions/2.2.5/lib/r
+setlocal path=~/rails_work/auth/auth_pundit/lib,~/rails_work/auth/auth_pundit/vendor,~/rails_work/auth/auth_pundit/app/models/concerns,~/rails_work/auth/auth_pundit/app/controllers/concerns,~/rails_work/auth/auth_pundit/app/controllers,~/rails_work/auth/auth_pundit/app/helpers,~/rails_work/auth/auth_pundit/app/mailers,~/rails_work/auth/auth_pundit/app/models,~/rails_work/auth/auth_pundit/app/jobs,~/rails_work/auth/auth_pundit/app/*,~/rails_work/auth/auth_pundit/app/views,~/rails_work/auth/auth_pundit/test,~/rails_work/auth/auth_pundit/test/unit,~/rails_work/auth/auth_pundit/test/functional,~/rails_work/auth/auth_pundit/test/integration,~/rails_work/auth/auth_pundit/test/controllers,~/rails_work/auth/auth_pundit/test/helpers,~/rails_work/auth/auth_pundit/test/mailers,~/rails_work/auth/auth_pundit/test/models,~/rails_work/auth/auth_pundit/test/jobs,~/rails_work/auth/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth/auth_pundit/vendor/plugins/*/test,~/rails_work/auth/auth_pundit/vendor/rails/*/lib,~/rails_work/auth/auth_pun
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -1764,7 +1099,7 @@ setlocal syntax=ruby
 endif
 setlocal tabstop=2
 setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
+setlocal tags=~/rails_work/auth/auth_pundit/tags,~/rails_work/auth/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal undofile
@@ -1774,16 +1109,141 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((2 * winheight(0) + 2) / 4)
+let s:l = 45 - ((2 * winheight(0) + 2) / 4)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
-normal! 041|
-lcd ~/rails_work/auth_pundit
+45
+normal! 031|
 wincmd w
 argglobal
-edit ~/rails_work/auth_pundit/app/policies/customer_policy.rb
+edit app/policies/customer_policy.rb
+let s:cpo_save=&cpo
+set cpo&vim
+cmap <buffer>  <Plug><cfile>
+cmap <buffer>  <Plug><cword>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=RubyBalloonexpr()
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_pundit
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=autofmt#japanese#formatexpr()
+setlocal formatoptions=mMcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
+setlocal includeexpr=rails#includeexpr(v:fname)
+setlocal indentexpr=GetRubyIndent(v:lnum)
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,128-167,224-235
+setlocal keywordprg=ri\ -T\ -f\ bs
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal nomacmeta
+setlocal makeprg=bin/rake
+setlocal matchpairs=(:),{:},[:]
+setlocal migemo
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=~/rails_work/auth/auth_pundit/lib,~/rails_work/auth/auth_pundit/vendor,~/rails_work/auth/auth_pundit/app/models/concerns,~/rails_work/auth/auth_pundit/app/controllers/concerns,~/rails_work/auth/auth_pundit/app/controllers,~/rails_work/auth/auth_pundit/app/helpers,~/rails_work/auth/auth_pundit/app/mailers,~/rails_work/auth/auth_pundit/app/models,~/rails_work/auth/auth_pundit/app/jobs,~/rails_work/auth/auth_pundit/app/*,~/rails_work/auth/auth_pundit/app/views,~/rails_work/auth/auth_pundit/test,~/rails_work/auth/auth_pundit/test/unit,~/rails_work/auth/auth_pundit/test/functional,~/rails_work/auth/auth_pundit/test/integration,~/rails_work/auth/auth_pundit/test/controllers,~/rails_work/auth/auth_pundit/test/helpers,~/rails_work/auth/auth_pundit/test/mailers,~/rails_work/auth/auth_pundit/test/models,~/rails_work/auth/auth_pundit/test/jobs,~/rails_work/auth/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth/auth_pundit/vendor/plugins/*/test,~/rails_work/auth/auth_pundit/vendor/rails/*/lib,~/rails_work/auth/auth_pun
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.rb
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'ruby'
+setlocal syntax=ruby
+endif
+setlocal tabstop=2
+setlocal tagcase=
+setlocal tags=~/rails_work/auth/auth_pundit/tags,~/rails_work/auth/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal undofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 12 - ((11 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+12
+normal! 03|
+wincmd w
+argglobal
+edit app/controllers/customers_controller.rb
 let s:cpo_save=&cpo
 set cpo&vim
 cmap <buffer>  <Plug><cfile>
@@ -1821,7 +1281,7 @@ setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth/auth_pundit
 setlocal expandtab
 if &filetype != 'ruby'
 setlocal filetype=ruby
@@ -1864,7 +1324,7 @@ setlocal nrformats=bin,hex
 setlocal nonumber
 setlocal numberwidth=4
 setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth_pundit/vendor/rails/*/test,~/rails_work/auth_pundit,~/**,.**,~/.rbenv/rbenv.d/exec/gem-rehash,~/.rbenv/versions/2.2.5/lib/r
+setlocal path=~/rails_work/auth/auth_pundit/lib,~/rails_work/auth/auth_pundit/vendor,~/rails_work/auth/auth_pundit/app/models/concerns,~/rails_work/auth/auth_pundit/app/controllers/concerns,~/rails_work/auth/auth_pundit/app/controllers,~/rails_work/auth/auth_pundit/app/helpers,~/rails_work/auth/auth_pundit/app/mailers,~/rails_work/auth/auth_pundit/app/models,~/rails_work/auth/auth_pundit/app/jobs,~/rails_work/auth/auth_pundit/app/*,~/rails_work/auth/auth_pundit/app/views,~/rails_work/auth/auth_pundit/app/views/customers,~/rails_work/auth/auth_pundit/app/views/application,~/rails_work/auth/auth_pundit/public,~/rails_work/auth/auth_pundit/test,~/rails_work/auth/auth_pundit/test/unit,~/rails_work/auth/auth_pundit/test/functional,~/rails_work/auth/auth_pundit/test/integration,~/rails_work/auth/auth_pundit/test/controllers,~/rails_work/auth/auth_pundit/test/helpers,~/rails_work/auth/auth_pundit/test/mailers,~/rails_work/auth/auth_pundit/test/models,~/rails_work/auth/auth_pundit/test/jobs,~/rails_work/auth/auth_pundit/vendor/pl
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -1891,7 +1351,7 @@ setlocal syntax=ruby
 endif
 setlocal tabstop=2
 setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
+setlocal tags=~/rails_work/auth/auth_pundit/tags,~/rails_work/auth/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.5/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.5/lib/ruby/2.2.0/x86_64-darwin14/tags
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal undofile
@@ -1901,147 +1361,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 7 - ((3 * winheight(0) + 5) / 10)
+let s:l = 25 - ((11 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 015|
-lcd ~/rails_work/auth_pundit
+25
+normal! 023|
 wincmd w
-argglobal
-edit ~/rails_work/auth_pundit/app/controllers/customers_controller.rb
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-cmap <buffer>  <Plug><cword>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,chdir\ /Users/toka/rails_work/auth_pundit
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=autofmt#japanese#formatexpr()
-setlocal formatoptions=mMcroql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
-setlocal includeexpr=rails#includeexpr(v:fname)
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,128-167,224-235
-setlocal keywordprg=ri\ -T\ -f\ bs
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal nomacmeta
-setlocal makeprg=bin/rake
-setlocal matchpairs=(:),{:},[:]
-setlocal migemo
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/rails_work/auth_pundit/lib,~/rails_work/auth_pundit/vendor,~/rails_work/auth_pundit/app/models/concerns,~/rails_work/auth_pundit/app/controllers/concerns,~/rails_work/auth_pundit/app/controllers,~/rails_work/auth_pundit/app/helpers,~/rails_work/auth_pundit/app/mailers,~/rails_work/auth_pundit/app/models,~/rails_work/auth_pundit/app/jobs,~/rails_work/auth_pundit/app/*,~/rails_work/auth_pundit/app/views,~/rails_work/auth_pundit/app/views/customers,~/rails_work/auth_pundit/app/views/application,~/rails_work/auth_pundit/public,~/rails_work/auth_pundit/test,~/rails_work/auth_pundit/test/unit,~/rails_work/auth_pundit/test/functional,~/rails_work/auth_pundit/test/integration,~/rails_work/auth_pundit/test/controllers,~/rails_work/auth_pundit/test/helpers,~/rails_work/auth_pundit/test/mailers,~/rails_work/auth_pundit/test/models,~/rails_work/auth_pundit/test/jobs,~/rails_work/auth_pundit/vendor/plugins/*/lib,~/rails_work/auth_pundit/vendor/plugins/*/test,~/rails_work/auth_pundit/vendor/rails/*/lib,~/rails_work/auth
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=.rb
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tags=~/rails_work/auth_pundit/tags,~/rails_work/auth_pundit/tmp/tags,./tags,tags,~/.rbenv/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-darwin14/tags,~/.rbenv/versions/2.2.4/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/tags,~/.rbenv/versions/2.2.4/lib/ruby/2.2.0/x86_64-darwin14/tags
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 83 - ((0 * winheight(0) + 3) / 6)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-83
-normal! 07|
-lcd ~/rails_work/auth_pundit
-wincmd w
-exe '1resize ' . ((&lines * 4 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 80 + 50) / 100)
-exe '2resize ' . ((&lines * 10 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 80 + 50) / 100)
-exe '3resize ' . ((&lines * 6 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 80 + 50) / 100)
+2wincmd w
+exe '1resize ' . ((&lines * 4 + 27) / 55)
+exe '2resize ' . ((&lines * 22 + 27) / 55)
+exe '3resize ' . ((&lines * 24 + 27) / 55)
 tabnext 2
 set stal=1
 if exists('s:wipebuf')

@@ -1,4 +1,6 @@
 class Customer < ActiveRecord::Base
+
+  # TODO
   def self.allowed(author, customer)
 
     rules = []
@@ -7,10 +9,11 @@ class Customer < ActiveRecord::Base
     return rules if author.nil?
 
     rules << :read_customer
-    if author.name == "toka"
+    if author.name == "admin"
       rules << :edit_customer
       rules << :customer
     end
     rules
   end
+
 end

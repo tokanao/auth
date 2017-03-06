@@ -3,6 +3,8 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user
+
+  # TODO
   load_and_authorize_resource
 
   # GET /customers
@@ -28,6 +30,9 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
+    # TODO
+    # authorize! :create, Customer
+
     @customer = Customer.new(customer_params)
 
     respond_to do |format|

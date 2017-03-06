@@ -3,13 +3,14 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user
-  before_action :pundit_auth, only: [:new]
+
+  # TODO
+  # before_action :pundit_auth, only: [:new]
 
   # GET /customers
   # GET /customers.json
   def index
     @customers = Customer.all
-    # authorize @customers
   end
 
   # GET /customers/1
@@ -19,12 +20,9 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    # begin
-      # @customer = Customer.new
-      # authorize @customer
-    # rescue Pundit::NotAuthorizedError => ex
-    #   render text: "not authorized error"
-    # end
+    @customer = Customer.new
+    # TODO
+    authorize @customer
   end
 
   # GET /customers/1/edit
@@ -84,10 +82,6 @@ class CustomersController < ApplicationController
 
     def pundit_auth
       @customer = Customer.new
-      begin
-        authorize @customer
-      rescue Pundit::NotAuthorizedError => ex
-        render text: '権限がありません'
-      end
+      authorize @customer
     end
 end

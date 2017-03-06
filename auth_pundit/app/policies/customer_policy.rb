@@ -1,6 +1,7 @@
+# TODO
 class CustomerPolicy < ApplicationPolicy
   def create?
-    user.name == "toka"
+    user.name == "admin"
   end
 
   class Scope < Scope

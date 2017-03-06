@@ -1,3 +1,4 @@
+# TODO
 class AccessPolicy
   include AccessGranted::Policy
 
@@ -44,7 +45,7 @@ class AccessPolicy
 
     role :member do
       can :create, User do |user|
-        user.name == "toka"
+        user.name == "admin"
       end
     end
   end

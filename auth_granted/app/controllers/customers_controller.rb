@@ -16,8 +16,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @user = env['warden'].user(:user)
-    authorize! :create, @user
+    # TODO
+    authorize! :create, current_user
 
     @customer = Customer.new
   end

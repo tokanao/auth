@@ -16,7 +16,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    authorize!
+    # TODO: 対応する Loyalty の同メソッドが呼ばれる
+    authorize! 
     @customer = Customer.new
   end
 
