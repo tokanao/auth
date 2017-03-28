@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
-  # TODO
+  # TODO: どのメソッドに対してチェックするかを決め、判定条件は用意された管理画面で行う
   # ref. http://localhost:3000/admin/roles/
   before_action :login_required
   before_action :role_required, only: [:edit, :new, :create]
