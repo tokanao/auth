@@ -4,6 +4,9 @@
 https://www.ruby-toolbox.com/categories/rails_authorization
 
 ※ 各プロジェクト配下のソースのポイントに "TODO" を埋め込んでいる
+```
+bundle exec rake notes|vi -
+```
 
 - アクセスルール：
 >customers/new に対して、ログインアカウント名が "admin" 以外はアクセス制限をかけている
