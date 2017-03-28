@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # TODO
+  # ref. http://localhost:3000/admin/roles/
   before_action :login_required
   before_action :role_required, only: [:edit, :new, :create]
 
