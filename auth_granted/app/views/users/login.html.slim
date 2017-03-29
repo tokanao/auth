@@ -2,8 +2,6 @@
   .row
     .col-md-6.col-md-offset-3
       .panel.panel-default
-        .panel-heading.text-center
-          | 未来とつながる　想いをつなげる
         .panel-body
           = form_for @user, html: {class: 'form-horizontal', method: 'post'}, url: {action: 'auth'} do |f|
             - if !flash.blank?
